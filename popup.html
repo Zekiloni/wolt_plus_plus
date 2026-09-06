@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wolt++</title>
+  <style>
+    :root {
+      --wolt-blue: #009de0;
+      --wolt-blue-dark: #007bb1;
+      --accent-strong: #009de0;
+      --text-primary: #202125;
+      --text-secondary: #656973;
+      --bg: #ffffff;
+      --bg-card: #f9f9fb;
+      --surface: #ffffff;
+      --border-color: #e7e9eb;
+      --error-color: #e74c3c;
+      --border-radius: 12px;
+      --border-radius-sm: 8px;
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --accent-strong: #4fc9f5;
+        --text-primary: #e9eaee;
+        --text-secondary: #9aa0a6;
+        --bg: #131519;
+        --bg-card: #1b1e24;
+        --surface: #22262d;
+        --border-color: #2c313a;
+        --shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+      }
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      width: 400px;
+      color: var(--text-primary);
+      background-color: var(--bg);
+    }
+    
+    #header {
+      background: linear-gradient(135deg, #007bb1 0%, #009de0 60%, #00b8f5 100%);
+      color: white;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    
+    #header img {
+      width: 34px;
+      height: 34px;
+      margin-right: 12px;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
+    }
+    
+    #header h1 {
+      margin: 0;
+      font-size: 1.35em;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+    }
+    
+    .header-sub {
+      font-size: 0.75em;
+      font-weight: 500;
+      opacity: 0.85;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    
+    #loading-indicator {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 15px;
+      text-align: center;
+      color: var(--text-secondary);
+    }
+    
+    #loading-indicator p {
+      margin-top: 15px;
+      font-size: 0.9em;
+    }
+    
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(0, 157, 224, 0.2);
+      border-radius: 50%;
+      border-top-color: var(--wolt-blue);
+      animation: spin 1s ease-in-out infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    #status {
+      padding: 8px 15px;
+      text-align: center;
+      font-size: 0.85em;
+      color: var(--text-secondary);
+    }
+    
+    #page-not-ready {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      color: var(--error-color);
+    }
+    
+    #not-logged-in {
+      padding: 20px;
+      text-align: center;
+      display: none;
+      color: var(--error-color);
+      background-color: rgba(231, 76, 60, 0.1);
+      border: 1px solid rgba(231, 76, 60, 0.25);
+      border-radius: var(--border-radius);
+      margin: 15px;
+    }
+    
+    #logged-in {
+      padding: 4px 15px 15px 15px;
+      display: none;
+    }
+    
+    #filter-container {
+      background-color: var(--bg-card);
+      border-radius: var(--border-radius);
+      padding: 15px;
+      margin-bottom: 12px;
+      border: 1px solid var(--border-color);
+    }
+    
+    .filter-title {
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--text-primary);
+      font-size: 0.95em;
+    }
+    
+    .filter-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    
+    .filter-row:last-child {
+      margin-bottom: 0;
+    }
+    
+    .filter-row label {
+      color: var(--text-secondary);
+      font-size: 0.9em;
+    }
+    
+    .filter-row select {
+      width: 65%;
+      padding: 8px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius-sm);
+      background-color: var(--surface);
+      color: var(--text-primary);
+      font-size: 0.9em;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="%239aa0a6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      padding-right: 30px;
+    }
+    
+    .limit-note {
+      font-size: 0.72em;
+      color: var(--text-secondary);
+      text-align: center;
+      margin-top: 10px;
+      font-style: italic;
+    }
+    
+    .section-label {
+      font-size: 0.72em;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      margin: 0 4px 6px 4px;
+    }
+    
+    #sum-display {
+      padding: 18px 15px;
+      text-align: center;
+      font-size: 1.6em;
+      font-weight: 700;
+      color: var(--accent-strong);
+      display: none;
+      background: linear-gradient(135deg, rgba(0, 157, 224, 0.1), rgba(0, 184, 245, 0.06));
+      border-radius: var(--border-radius);
+      border: 1px solid rgba(0, 157, 224, 0.25);
+      margin-bottom: 14px;
+      white-space: pre-line;
+      box-shadow: var(--shadow);
+    }
+    
+    #stats-container {
+      background-color: var(--bg-card);
+      border-radius: var(--border-radius);
+      padding: 15px;
+      margin-bottom: 14px;
+      border: 1px solid var(--border-color);
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius-sm);
+      padding: 12px 10px;
+      text-align: center;
+      min-width: 0;
+      box-shadow: var(--shadow);
+    }
+    
+    .stat-value {
+      font-size: 1.15em;
+      font-weight: 700;
+      color: var(--text-primary);
+      white-space: pre-line;
+      word-break: break-word;
+    }
+    
+    .stat-label {
+      font-size: 0.68em;
+      color: var(--text-secondary);
+      margin-top: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+    }
+    
+    #stat-top-venue {
+      font-size: 0.9em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    
+    #venue-breakdown {
+      margin-bottom: 14px;
+    }
+    
+    #venue-list {
+      list-style: none;
+      max-height: 230px;
+      overflow-y: auto;
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      background-color: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    
+    #venue-list::-webkit-scrollbar {
+      width: 6px;
+    }
+    
+    #venue-list::-webkit-scrollbar-thumb {
+      background: var(--border-color);
+      border-radius: 3px;
+    }
+    
+    #venue-list li {
+      padding: 9px 12px 8px 12px;
+      border-bottom: 1px solid var(--border-color);
+      cursor: pointer;
+      transition: background-color 0.15s;
+    }
+    
+    #venue-list li:last-child {
+      border-bottom: none;
+    }
+    
+    #venue-list li:hover {
+      background-color: rgba(0, 157, 224, 0.07);
+    }
+    
+    #venue-list li.active {
+      background-color: rgba(0, 157, 224, 0.12);
+    }
+    
+    #venue-list li.active .venue-name {
+      color: var(--wolt-blue);
+      font-weight: 600;
+    }
+    
+    .venue-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .venue-name {
+      flex: 1;
+      margin-right: 8px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 0.9em;
+    }
+    
+    .venue-meta {
+      text-align: right;
+      font-size: 0.78em;
+      color: var(--text-secondary);
+      white-space: pre-line;
+      flex-shrink: 0;
+    }
+    
+    .venue-sum {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    
+    .venue-bar {
+      height: 4px;
+      background: var(--border-color);
+      border-radius: 2px;
+      margin-top: 7px;
+      overflow: hidden;
+    }
+    
+    .venue-bar-fill {
+      height: 100%;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--wolt-blue), #00b8f5);
+      transition: width 0.3s ease;
+    }
+    
+    #calculate-btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, var(--wolt-blue), #00b8f5);
+      color: white;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-size: 0.95em;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: filter 0.2s, transform 0.1s;
+      box-shadow: 0 3px 10px rgba(0, 157, 224, 0.3);
+    }
+    
+    #calculate-btn:hover {
+      filter: brightness(1.08);
+    }
+    
+    #calculate-btn:active {
+      transform: scale(0.985);
+    }
+    
+    #calculate-btn:disabled {
+      background: var(--border-color);
+      color: var(--text-secondary);
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+  </style>
+  <script src="popup.js"></script>
+</head>
+<body>
+  <div id="header" role="banner">
+    <img src="images/icon48.png" alt="Wolt++ Logo" width="34" height="34">
+    <div>
+      <h1>Wolt++</h1>
+      <div class="header-sub">Spending Tracker</div>
+    </div>
+  </div>
+  
+  <div id="loading-indicator">
+    <div class="spinner"></div>
+    <p id="loading-text">Loading extension...</p>
+  </div>
+  
+  <div id="status" role="status" aria-live="polite"></div>
+  
+  <div id="page-not-ready" style="display: none; text-align: center; padding: 20px; color: var(--error-color);">
+    <p style="margin-bottom: 15px;">The page is still loading. Please wait a moment and try again.</p>
+    <button id="reload-btn" style="padding: 8px 16px; background-color: var(--wolt-blue); color: white; border: none; border-radius: var(--border-radius-sm); cursor: pointer;">
+      Reload
+    </button>
+  </div>
+  
+  <div id="not-logged-in" role="alert">
+    Please log in to Wolt to view your orders.
+  </div>
+  
+  <main id="logged-in" role="main">
+    <div id="filter-container" style="display: none;" aria-labelledby="filter-title">
+      <div id="filter-title" class="filter-title">Filter period</div>
+      <div class="filter-row">
+        <label for="year-filter">Year:</label>
+        <select id="year-filter" aria-label="Select year">
+          <option value="all">All years</option>
+        </select>
+      </div>
+      <div class="filter-row">
+        <label for="month-filter">Month:</label>
+        <select id="month-filter" aria-label="Select month">
+          <option value="all">All months</option>
+        </select>
+      </div>
+      <div class="filter-row">
+        <label for="venue-filter">Restaurant:</label>
+        <select id="venue-filter" aria-label="Select restaurant">
+          <option value="all">All restaurants</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="section-label" id="sum-label">Total spent</div>
+    <div id="sum-display" aria-live="polite" role="region" aria-label="Calculated sum"></div>
+    
+    <div id="stats-container" style="display: none;" aria-labelledby="stats-title">
+      <div id="stats-title" class="filter-title">Statistics</div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value" id="stat-orders">0</div>
+          <div class="stat-label" id="stat-label-orders">Orders</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="stat-avg">0</div>
+          <div class="stat-label" id="stat-label-avg">Avg per order</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="stat-venues">0</div>
+          <div class="stat-label" id="stat-label-venues">Restaurants</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="stat-top-venue">-</div>
+          <div class="stat-label" id="stat-label-top">Top restaurant</div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="venue-breakdown" style="display: none;" aria-labelledby="venue-breakdown-title">
+      <div id="venue-breakdown-title" class="filter-title">Spending by restaurant</div>
+      <ul id="venue-list"></ul>
+    </div>
+    
+    <button id="calculate-btn" aria-label="Calculate orders sum">Calculate Order Sum</button>
+    
+    <div class="limit-note" aria-description="Information about limitations" id="limit-note">Only the last 20,000 orders can be counted.</div>
+  </main>
+</body>
+</html>

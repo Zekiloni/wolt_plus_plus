@@ -1,0 +1,242 @@
+{
+  "extensionName": {
+    "message": "Wolt++",
+    "description": "Name of the extension"
+  },
+  "extensionDescription": {
+    "message": "Prati i izračunaj ukupan iznos potrošen na Wolt porudžbinama, sa statistikom po restoranima. Podržava engleski, nemački, španski i srpski.",
+    "description": "Description of the extension"
+  },
+  "tagline": {
+    "message": "Praćenje potrošnje",
+    "description": "Subtitle shown in the extension header"
+  },
+  "totalSpent": {
+    "message": "Ukupno potrošeno",
+    "description": "Label above the total sum display"
+  },
+  "statusChecking": {
+    "message": "Provera statusa prijave...",
+    "description": "Status message when checking login"
+  },
+  "onlyWolt": {
+    "message": "Ova ekstenzija radi samo na wolt.com",
+    "description": "Message shown when not on Wolt website"
+  },
+  "communicationError": {
+    "message": "Greška u komunikaciji sa veb-sajtom",
+    "description": "Error message when communication fails"
+  },
+  "pageNotReady": {
+    "message": "Stranica se još uvek učitava. Sačekajte trenutak i pokušajte ponovo.",
+    "description": "Message when page is not fully loaded yet"
+  },
+  "userLoggedIn": {
+    "message": "Korisnik je prijavljen",
+    "description": "Status message when user is logged in"
+  },
+  "userNotLoggedIn": {
+    "message": "Korisnik nije prijavljen",
+    "description": "Status message when user is not logged in"
+  },
+  "initError": {
+    "message": "Greška pri inicijalizaciji",
+    "description": "Error message during initialization"
+  },
+  "offline": {
+    "message": "Niste na mreži. Prikazuju se poslednji sačuvani rezultati.",
+    "description": "Message shown when offline"
+  },
+  "fetchingOrders": {
+    "message": "Preuzimanje porudžbina...",
+    "description": "Status message when fetching orders"
+  },
+  "fetchingOrdersCount": {
+    "message": "Preuzimanje porudžbina... ($1 do sada)",
+    "description": "Status message with count of fetched orders"
+  },
+  "authError": {
+    "message": "Autentifikacija nije uspela. Prijavite se ponovo.",
+    "description": "Error message for authentication failure"
+  },
+  "fetchingError": {
+    "message": "Greška pri preuzimanju porudžbina.",
+    "description": "Error message when fetching orders fails"
+  },
+  "networkError": {
+    "message": "Greška na mreži. Proverite vezu.",
+    "description": "Error message for network issues"
+  },
+  "noOrders": {
+    "message": "Nisu pronađene porudžbine",
+    "description": "Message when no orders are found"
+  },
+  "ordersFoundAll": {
+    "message": "Pronađeno $1 porudžbina (bez filtera)",
+    "description": "Count of orders with no filter applied"
+  },
+  "ordersFoundYear": {
+    "message": "Pronađeno $1 porudžbina ($2)",
+    "description": "Count of orders filtered by year"
+  },
+  "ordersFoundMonth": {
+    "message": "Pronađeno $1 porudžbina ($2)",
+    "description": "Count of orders filtered by month"
+  },
+  "ordersFoundYearMonth": {
+    "message": "Pronađeno $1 porudžbina ($2 $3)",
+    "description": "Count of orders filtered by year and month"
+  },
+  "errorOccurred": {
+    "message": "Došlo je do greške",
+    "description": "Generic error message"
+  },
+  "errorPrefix": {
+    "message": "Greška: $1",
+    "description": "Prefix for error messages"
+  },
+  "allYears": {
+    "message": "Sve godine",
+    "description": "Option for all years in year filter"
+  },
+  "allMonths": {
+    "message": "Svi meseci",
+    "description": "Option for all months in month filter"
+  },
+  "venue": {
+    "message": "Restoran:",
+    "description": "Label for restaurant filter"
+  },
+  "allVenues": {
+    "message": "Svi restorani",
+    "description": "Option for all restaurants in venue filter"
+  },
+  "statistics": {
+    "message": "Statistika",
+    "description": "Title for statistics section"
+  },
+  "statOrders": {
+    "message": "Porudžbine",
+    "description": "Label for total order count statistic"
+  },
+  "statAvg": {
+    "message": "Prosek po porudžbini",
+    "description": "Label for average per order statistic"
+  },
+  "statVenues": {
+    "message": "Restorani",
+    "description": "Label for unique restaurant count statistic"
+  },
+  "statTopVenue": {
+    "message": "Najbolji restoran",
+    "description": "Label for top restaurant statistic"
+  },
+  "restaurantBreakdown": {
+    "message": "Potrošnja po restoranima",
+    "description": "Title for restaurant breakdown list"
+  },
+  "orderCount": {
+    "message": "Broj porudžbina: $1",
+    "description": "Order count with number, e.g. '5 orders'"
+  },
+  "unknownVenue": {
+    "message": "Nepoznat restoran",
+    "description": "Fallback name for orders without a venue name"
+  },
+  "venueFilterHint": {
+    "message": "Kliknite da filtrirate po: $1",
+    "description": "Tooltip for clicking a restaurant in the breakdown list"
+  },
+  "filterPeriod": {
+    "message": "Filtriraj period",
+    "description": "Title for filter section"
+  },
+  "year": {
+    "message": "Godina:",
+    "description": "Label for year filter"
+  },
+  "month": {
+    "message": "Mesec:",
+    "description": "Label for month filter"
+  },
+  "calculateButton": {
+    "message": "Izračunaj sumu porudžbina",
+    "description": "Text for calculate button"
+  },
+  "pleaseLogin": {
+    "message": "Prijavite se na Wolt da biste videli svoje porudžbine.",
+    "description": "Message when user needs to log in"
+  },
+  "loadingText": {
+    "message": "Preuzimanje porudžbina...",
+    "description": "Text shown during loading"
+  },
+  "readyToCalculate": {
+    "message": "Spremno za izračunavanje sume...",
+    "description": "Status message when ready to calculate"
+  },
+  "recalculateButton": {
+    "message": "Učitaj nove porudžbine sa filterom",
+    "description": "Text for recalculate button"
+  },
+  "limitNote": {
+    "message": "Može se izbrojati samo poslednjih 20.000 porudžbina.",
+    "description": "Note about order limit"
+  },
+  "loadingExtension": {
+    "message": "Učitavanje ekstenzije...",
+    "description": "Message shown when extension is loading"
+  },
+  "reloadButton": {
+    "message": "Ponovo učitaj",
+    "description": "Text for reload button"
+  },
+  "january": {
+    "message": "Januar",
+    "description": "Name of month"
+  },
+  "february": {
+    "message": "Februar",
+    "description": "Name of month"
+  },
+  "march": {
+    "message": "Mart",
+    "description": "Name of month"
+  },
+  "april": {
+    "message": "April",
+    "description": "Name of month"
+  },
+  "may": {
+    "message": "Maj",
+    "description": "Name of month"
+  },
+  "june": {
+    "message": "Jun",
+    "description": "Name of month"
+  },
+  "july": {
+    "message": "Jul",
+    "description": "Name of month"
+  },
+  "august": {
+    "message": "Avgust",
+    "description": "Name of month"
+  },
+  "september": {
+    "message": "Septembar",
+    "description": "Name of month"
+  },
+  "october": {
+    "message": "Oktobar",
+    "description": "Name of month"
+  },
+  "november": {
+    "message": "Novembar",
+    "description": "Name of month"
+  },
+  "december": {
+    "message": "Decembar",
+    "description": "Name of month"
+  }
+}

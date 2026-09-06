@@ -1,0 +1,49 @@
+{
+  "update_url": "https://clients2.google.com/service/update2/crx",
+  "manifest_version": 3,
+  "name": "__MSG_extensionName__",
+  "short_name": "Wolt++",
+  "version": "1.0",
+  "description": "__MSG_extensionDescription__",
+  "author": "https://github.com/zekiloni",
+  "minimum_chrome_version": "88.0",
+  "default_locale": "en",
+  "permissions": [
+    "activeTab"
+  ],
+  "host_permissions": [
+    "*://*.wolt.com/*"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    },
+    "default_title": "__MSG_extensionName__"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.wolt.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  }
+} 

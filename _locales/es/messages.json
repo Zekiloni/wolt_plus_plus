@@ -1,0 +1,242 @@
+{
+  "extensionName": {
+    "message": "Wolt++",
+    "description": "Name of the extension"
+  },
+  "extensionDescription": {
+    "message": "Realiza un seguimiento y calcula el importe total gastado en tus pedidos de Wolt, con estadísticas por restaurante. Compatible con inglés, alemán, español y serbio.",
+    "description": "Description of the extension"
+  },
+  "tagline": {
+    "message": "Control de gastos",
+    "description": "Subtitle shown in the extension header"
+  },
+  "totalSpent": {
+    "message": "Total gastado",
+    "description": "Label above the total sum display"
+  },
+  "statusChecking": {
+    "message": "Comprobando estado de inicio de sesión...",
+    "description": "Status message when checking login"
+  },
+  "onlyWolt": {
+    "message": "Esta extensión solo funciona en wolt.com",
+    "description": "Message shown when not on Wolt website"
+  },
+  "communicationError": {
+    "message": "Error al comunicarse con el sitio web",
+    "description": "Error message when communication fails"
+  },
+  "pageNotReady": {
+    "message": "La página todavía se está cargando. Espera un momento e inténtalo de nuevo.",
+    "description": "Message when page is not fully loaded yet"
+  },
+  "userLoggedIn": {
+    "message": "El usuario ha iniciado sesión",
+    "description": "Status message when user is logged in"
+  },
+  "userNotLoggedIn": {
+    "message": "El usuario no ha iniciado sesión",
+    "description": "Status message when user is not logged in"
+  },
+  "initError": {
+    "message": "Error de inicialización",
+    "description": "Error message during initialization"
+  },
+  "offline": {
+    "message": "Estás sin conexión. Se muestran los últimos resultados guardados.",
+    "description": "Message shown when offline"
+  },
+  "fetchingOrders": {
+    "message": "Obteniendo pedidos...",
+    "description": "Status message when fetching orders"
+  },
+  "fetchingOrdersCount": {
+    "message": "Obteniendo pedidos... ($1 hasta ahora)",
+    "description": "Status message with count of fetched orders"
+  },
+  "authError": {
+    "message": "No se pudo autenticar. Inicia sesión de nuevo.",
+    "description": "Error message for authentication failure"
+  },
+  "fetchingError": {
+    "message": "Error al obtener los pedidos.",
+    "description": "Error message when fetching orders fails"
+  },
+  "networkError": {
+    "message": "Error de red. Comprueba tu conexión.",
+    "description": "Error message for network issues"
+  },
+  "noOrders": {
+    "message": "No se encontraron pedidos",
+    "description": "Message when no orders are found"
+  },
+  "ordersFoundAll": {
+    "message": "$1 pedidos encontrados (sin filtro)",
+    "description": "Count of orders with no filter applied"
+  },
+  "ordersFoundYear": {
+    "message": "$1 pedidos encontrados ($2)",
+    "description": "Count of orders filtered by year"
+  },
+  "ordersFoundMonth": {
+    "message": "$1 pedidos encontrados ($2)",
+    "description": "Count of orders filtered by month"
+  },
+  "ordersFoundYearMonth": {
+    "message": "$1 pedidos encontrados ($2 $3)",
+    "description": "Count of orders filtered by year and month"
+  },
+  "errorOccurred": {
+    "message": "Se produjo un error",
+    "description": "Generic error message"
+  },
+  "errorPrefix": {
+    "message": "Error: $1",
+    "description": "Prefix for error messages"
+  },
+  "allYears": {
+    "message": "Todos los años",
+    "description": "Option for all years in year filter"
+  },
+  "allMonths": {
+    "message": "Todos los meses",
+    "description": "Option for all months in month filter"
+  },
+  "venue": {
+    "message": "Restaurante:",
+    "description": "Label for restaurant filter"
+  },
+  "allVenues": {
+    "message": "Todos los restaurantes",
+    "description": "Option for all restaurants in venue filter"
+  },
+  "statistics": {
+    "message": "Estadísticas",
+    "description": "Title for statistics section"
+  },
+  "statOrders": {
+    "message": "Pedidos",
+    "description": "Label for total order count statistic"
+  },
+  "statAvg": {
+    "message": "Promedio por pedido",
+    "description": "Label for average per order statistic"
+  },
+  "statVenues": {
+    "message": "Restaurantes",
+    "description": "Label for unique restaurant count statistic"
+  },
+  "statTopVenue": {
+    "message": "Mejor restaurante",
+    "description": "Label for top restaurant statistic"
+  },
+  "restaurantBreakdown": {
+    "message": "Gasto por restaurante",
+    "description": "Title for restaurant breakdown list"
+  },
+  "orderCount": {
+    "message": "$1 pedidos",
+    "description": "Order count with number, e.g. '5 orders'"
+  },
+  "unknownVenue": {
+    "message": "Restaurante desconocido",
+    "description": "Fallback name for orders without a venue name"
+  },
+  "venueFilterHint": {
+    "message": "Haz clic para filtrar por $1",
+    "description": "Tooltip for clicking a restaurant in the breakdown list"
+  },
+  "filterPeriod": {
+    "message": "Filtrar período",
+    "description": "Title for filter section"
+  },
+  "year": {
+    "message": "Año:",
+    "description": "Label for year filter"
+  },
+  "month": {
+    "message": "Mes:",
+    "description": "Label for month filter"
+  },
+  "calculateButton": {
+    "message": "Calcular suma de pedidos",
+    "description": "Text for calculate button"
+  },
+  "pleaseLogin": {
+    "message": "Inicia sesión en Wolt para ver tus pedidos.",
+    "description": "Message when user needs to log in"
+  },
+  "loadingText": {
+    "message": "Obteniendo pedidos...",
+    "description": "Text shown during loading"
+  },
+  "readyToCalculate": {
+    "message": "Listo para calcular la suma...",
+    "description": "Status message when ready to calculate"
+  },
+  "recalculateButton": {
+    "message": "Cargar nuevos pedidos con filtro",
+    "description": "Text for recalculate button"
+  },
+  "limitNote": {
+    "message": "Solo se pueden contar los últimos 20.000 pedidos.",
+    "description": "Note about order limit"
+  },
+  "loadingExtension": {
+    "message": "Cargando extensión...",
+    "description": "Message shown when extension is loading"
+  },
+  "reloadButton": {
+    "message": "Recargar",
+    "description": "Text for reload button"
+  },
+  "january": {
+    "message": "Enero",
+    "description": "Name of month"
+  },
+  "february": {
+    "message": "Febrero",
+    "description": "Name of month"
+  },
+  "march": {
+    "message": "Marzo",
+    "description": "Name of month"
+  },
+  "april": {
+    "message": "Abril",
+    "description": "Name of month"
+  },
+  "may": {
+    "message": "Mayo",
+    "description": "Name of month"
+  },
+  "june": {
+    "message": "Junio",
+    "description": "Name of month"
+  },
+  "july": {
+    "message": "Julio",
+    "description": "Name of month"
+  },
+  "august": {
+    "message": "Agosto",
+    "description": "Name of month"
+  },
+  "september": {
+    "message": "Septiembre",
+    "description": "Name of month"
+  },
+  "october": {
+    "message": "Octubre",
+    "description": "Name of month"
+  },
+  "november": {
+    "message": "Noviembre",
+    "description": "Name of month"
+  },
+  "december": {
+    "message": "Diciembre",
+    "description": "Name of month"
+  }
+}
